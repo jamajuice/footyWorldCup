@@ -3,10 +3,10 @@ import { NavController } from 'ionic-angular';
 import { PeopleServiceProvider } from '../../providers/people-service/people-service';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-fixtures',
+  templateUrl: 'fixtures.html'
 })
-export class HomePage {
+export class FixturesPage {
   users: any;
 
   constructor(public navCtrl: NavController, public peopleProvider: PeopleServiceProvider) {

@@ -14,3 +14,24 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+ion-menu{
+    ion-header{
+        ion-toolbar{
+            height:300px;
+            min-height: 300px;
+        }
+        .toolbar-background-ios{
+            background-image: url("/img/menuWorldCupTitle.jpg");
+            background-position: center;
+            background-size: contain;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.activeHighlight{
+    background-color: map-get($colors, primary);
+    color: #fff;
+}
