@@ -17,16 +17,20 @@
 ion-menu{
     ion-header{
         ion-toolbar{
-            height:300px;
-            min-height: 300px;
-        }
-        .toolbar-background-ios{
-            background-image: url("/img/menuWorldCupTitle.jpg");
-            background-position: center;
-            background-size: contain;
-            -webkit-background-size: contain;
-            -moz-background-size: contain;
-            background-repeat: no-repeat;
+            height:305px;
+            min-height: 305px;
+
+            &.toolbar-ios, &.toolbar-md{
+                padding: 0;
+            }
+            .toolbar-background{
+                background-image: url("/img/menuWorldCupTitle.jpg");
+                background-position: center;
+                background-size: contain;
+                -webkit-background-size: contain;
+                -moz-background-size: contain;
+                background-repeat: no-repeat;
+            }
         }
     }
 }
