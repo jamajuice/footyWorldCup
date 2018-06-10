@@ -1,7 +1,5 @@
-import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from "rxjs/operators";
-import 'rxjs/add/operator/map';
 
 /*
   Generated class for the FootyDataServiceProvider provider.
