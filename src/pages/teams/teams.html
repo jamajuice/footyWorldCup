@@ -16,28 +16,18 @@
 
 <ion-content>
   <ion-list>
-    <div ion-item class="cardTeam" *ngFor="let team of teams" >
-      <img class="teamButtonCrest" [src]="team.crestUrl">
-      {{team.name}}
-      <div class="divTeamOptions">
-        <!--<button class="btnPlayers" (click)="teamTapped($event, team)">
+    <div ion-item no-lines class="cardTeam" *ngFor="let team of teams" >
+      <div class="teamName">{{team.name}}</div>
+      <div class="teamDisplay" [style.backgroundImage]="'url(' + team.crestUrl + ')'"></div>
+      <div class="teamButtons">
+        <button class="btnPlayers" full outline color="light" (click)="teamTapped($event, team)">
           <ion-icon ios="ios-people" md="md-people"></ion-icon>
           Players
         </button>
-        <button class="btnFixtures" (click)="teamTapped($event, team)">
+        <button class="btnFixtures" full outline color="light" (click)="teamTapped($event, team)">
           <ion-icon ios="ios-swap" md="md-swap"></ion-icon>
           Fixtures
-        </button>-->
-        <ion-segment [(ngModel)]="icons" color="dark">
-            <ion-segment-button value="people" (ionSelect)="teamTapped($event, team)">
-              <ion-icon name="people"></ion-icon>
-              <label>Players</label>
-            </ion-segment-button>
-            <ion-segment-button value="people">
-              <ion-icon name="swap"></ion-icon>
-              <label>Fixtures</label>
-            </ion-segment-button>
-          </ion-segment>
+        </button>
       </div>
     </div>
   </ion-list>
