@@ -22,16 +22,15 @@
       <div class="teamButtons">
         <button class="btnPlayers" full outline color="light" (click)="teamTapped($event, team)">
           <ion-icon ios="ios-people" md="md-people"></ion-icon>
-          Players
+          <span>Players</span>
         </button>
         <button class="btnFixtures" full outline color="light" (click)="teamTapped($event, team)">
-          <ion-icon ios="ios-swap" md="md-swap"></ion-icon>
-          Fixtures
+          <ion-icon ios="ios-swap" md="md-swap">
+            
+          </ion-icon>
+          <span>Fixtures</span>
         </button>
       </div>
     </div>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.name}}</b>
-  </div>
 </ion-content>
