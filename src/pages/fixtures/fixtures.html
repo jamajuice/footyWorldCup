@@ -9,9 +9,10 @@
 
 <ion-content>
   <ion-list inset>
-    <ion-item *ngFor="let user of users">
-      <h2>{{user.name}}</h2>
-      <p>{{user.email}}</p>
+    <ion-item *ngFor="let fixture of fixtures">
+      <h2>{{fixture.homeTeamName}}</h2>
+      <div>vs</div>
+      <h2>{{fixture.awayTeamName}}</h2>
     </ion-item>
   </ion-list>
 </ion-content>

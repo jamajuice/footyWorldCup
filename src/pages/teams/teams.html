@@ -20,11 +20,11 @@
       <div class="teamName">{{team.name}}</div>
       <div class="teamDisplay" [style.backgroundImage]="'url(' + team.crestUrl + ')'"></div>
       <div class="teamButtons">
-        <button class="btnPlayers" full outline color="light" (click)="teamTapped($event, team)">
+        <button class="btnPlayers" full outline color="light" (click)="playersTapped($event, team._links.players.href)">
           <ion-icon ios="ios-people" md="md-people"></ion-icon>
           <span>Players</span>
         </button>
-        <button class="btnFixtures" full outline color="light" (click)="teamTapped($event, team)">
+        <button class="btnFixtures" full outline color="light" (click)="fixturesTapped($event, team._links.fixtures.href)">
           <ion-icon ios="ios-swap" md="md-swap">
             
           </ion-icon>

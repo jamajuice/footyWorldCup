@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FootyDataServiceProvider } from '../../providers/footy-data-service/footy-data-service';
+import { PlayersPage } from '../players/players';
+import { FixturesPage } from '../fixtures/fixtures';
 
 /**
  * Generated class for the TeamsPage page.
@@ -20,12 +22,7 @@ export class TeamsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public footyDataService: FootyDataServiceProvider) {
     this.getTeams();
-
     this.selectedItem = navParams.get('item');
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TeamsPage');
   }
 
   getTeams() {
@@ -36,10 +33,17 @@ export class TeamsPage {
     });
   }
 
-  teamTapped(event, team) {
+  playersTapped(event, url) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(TeamsPage, {
-      item: team 
+    this.navCtrl.push(PlayersPage, {
+      clickedApiURl: url 
+    });
+  }
+
+  fixturesTapped(event, url) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(FixturesPage, {
+      clickedApiURl: url 
     });
   }
 

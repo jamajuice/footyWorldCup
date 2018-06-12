@@ -1,24 +1,39 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { PeopleServiceProvider } from '../../providers/people-service/people-service';
+import { NavController, NavParams } from 'ionic-angular';
+import { FootyDataServiceProvider } from '../../providers/footy-data-service/footy-data-service';
 
 @Component({
   selector: 'page-fixtures',
   templateUrl: 'fixtures.html'
 })
 export class FixturesPage {
-  users: any;
+  fixtures: any;
+  clickedApiURL: any;
 
-  constructor(public navCtrl: NavController, public peopleProvider: PeopleServiceProvider) {
-    this.getUsers();
+  constructor(public navCtrl: NavController, public navParams: NavParams, public footyDataService: FootyDataServiceProvider) {
+    this.clickedApiURL = this.navParams.get('clickedApiURl');
+    if(this.clickedApiURL){
+      this.getFixturesByTeam()
+    }else{
+      this.getFixtures();
+    }
   }
 
-  getUsers() {
-    this.peopleProvider.getUsers()
+  getFixtures() {
+    this.footyDataService.getFixtures()
     .then(data => {
-      this.users = data;
-      console.log(this.users);
+      this.fixtures = data;
+      console.log(this.fixtures);
     });
   }
+
+  getFixturesByTeam() {
+    this.footyDataService.getClickedFixtures(this.clickedApiURL)
+    .then(data => {
+      this.fixtures = data;
+      console.log(this.fixtures);
+    });
+  }
+
 
 }

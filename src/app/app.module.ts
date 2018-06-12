@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { FixturesPage } from '../pages/fixtures/fixtures';
 import { TeamsPage } from '../pages/teams/teams';
+import { PlayersPage } from '../pages/players/players';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +17,8 @@ import { FootyDataServiceProvider } from '../providers/footy-data-service/footy-
   declarations: [
     MyApp,
     FixturesPage,
-    TeamsPage
+    TeamsPage,
+    PlayersPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { FootyDataServiceProvider } from '../providers/footy-data-service/footy-
   entryComponents: [
     MyApp,
     FixturesPage,
-    TeamsPage
+    TeamsPage,
+    PlayersPage
   ],
   providers: [
     StatusBar,
