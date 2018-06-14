@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { FixturesPage } from '../pages/fixtures/fixtures';
+import { TablePage } from '../pages/table/table';
 import { TeamsPage } from '../pages/teams/teams';
 
 @Component({
@@ -22,7 +23,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Fixtures', component: FixturesPage },
-      { title: 'Table', component: FixturesPage },
+      { title: 'Table', component: TablePage },
       { title: 'Teams', component: TeamsPage }
     ];
 

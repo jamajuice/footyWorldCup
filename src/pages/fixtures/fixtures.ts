@@ -25,7 +25,6 @@ export class FixturesPage {
     this.footyDataService.getFixtures()
     .then(data => {
       this.fixtures = data;
-      console.log(this.fixtures);
     });
   }
 
@@ -33,7 +32,6 @@ export class FixturesPage {
     this.footyDataService.getClickedFixtures(this.clickedApiURL)
     .then(data => {
       this.fixtures = data;
-      console.log(this.fixtures);
     });
   }
 
@@ -45,10 +43,18 @@ export class FixturesPage {
   }
 
   getTeamPicture(teamName){
-    for (let team of this.teams) {
-      if(teamName === team["name"]){
-        return team["crestUrl"];
+    let crestUrl: any;
+    if(this.teams != null && typeof this.teams !== undefined && this.teams.length !== 0){
+      for (let team of this.teams) {
+        if(teamName === team["name"]){
+          crestUrl = team["crestUrl"];
+          if(crestUrl !== null || typeof crestUrl !== undefined){
+            return crestUrl;
+          }
+        }
       }
+    }else{
+      return "#";
     }
   }
 

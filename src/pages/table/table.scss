@@ -1,0 +1,36 @@
+page-table {
+    .groupTable {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        
+        td{
+            img{
+                width: 20px;
+                margin-right: 10px;
+            }
+        }
+
+        td, th {
+            border: none;
+            padding: 8px;
+        }
+
+
+        tr:hover {background-color: #ddd;}
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: darkred;
+            color: #fff;
+        }
+
+        th:first-child{
+            width: 200px;
+            text-align:left;
+        }
+    }
+
+}

@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item no-lines class="cardFixture" *ngFor="let fixture of fixtures">
+  <ion-list *ngFor="let fixture of fixtures">
+    <ion-item no-lines class="cardFixture" *ngIf="fixture.status === 'TIMED'">
       <div class="fixtureBody">
         <div class="divider">
           <div class="imgContainer">

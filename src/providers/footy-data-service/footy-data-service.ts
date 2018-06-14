@@ -32,6 +32,19 @@ export class FootyDataServiceProvider {
     });
   }
 
+  getLeagueTable(){
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl+'/leagueTable', {
+        headers: new HttpHeaders().set('X-Auth-Token', this.authToken),
+      })
+      .subscribe(data => {
+        resolve(data["standings"]);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   getTeams() {
     return new Promise((resolve, reject) => {
       this.http.get(this.apiUrl+'/teams', {
@@ -46,7 +59,6 @@ export class FootyDataServiceProvider {
   }
 
   getTeamPicture(imgApiUrl){
-    console.log(imgApiUrl);
     return new Promise((resolve, reject) => {
       this.http.get(imgApiUrl, {
         headers: new HttpHeaders().set('X-Auth-Token', this.authToken),
