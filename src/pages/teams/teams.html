@@ -16,7 +16,7 @@
 
 <ion-content>
   <ion-list>
-    <div ion-item no-lines class="cardTeam" *ngFor="let team of teams" >
+    <ion-item no-lines class="cardTeam" *ngFor="let team of teams" >
       <div class="teamName">{{team.name}}</div>
       <div class="teamDisplay" [style.backgroundImage]="'url(' + team.crestUrl + ')'"></div>
       <div class="teamButtons">
@@ -31,6 +31,6 @@
           <span>Fixtures</span>
         </button>
       </div>
-    </div>
+    </ion-item>
   </ion-list>
 </ion-content>

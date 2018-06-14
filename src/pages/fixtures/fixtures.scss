@@ -1,25 +1,55 @@
-.card-background-page {
-
-    ion-card {
-      position: relative;
+page-fixtures {
+  .cardFixture{
       text-align: center;
-    }
-  
-    .card-title {
-      position: absolute;
-      top: 36%;
-      font-size: 2.0em;
-      width: 100%;
-      font-weight: bold;
-      color: #fff;
-    }
-  
-    .card-subtitle {
-      font-size: 1.0em;
-      position: absolute;
-      top: 52%;
-      width: 100%;
-      color: #fff;
-    }
-  
+
+      ion-label{
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        background: url(/img/fixtureBackground.jpg) no-repeat center;
+        background-size: cover;
+
+        .fixtureBody{
+          height: 145px;
+          color: #fff;
+          
+          .imgContainer{
+            height: 100px;
+            position: relative;
+
+            img{
+              height: 60px;
+              width: 60px;
+              border: 1px solid #fff;
+              border-radius: 40px;
+              position: absolute;
+              top: 37%;
+              left: 25%;
+              overflow: hidden;
+              object-fit: cover;
+            }
+
+          }
+
+          .divider{
+            display: inline-table;
+            width:33%;
+            height: 100%;
+            float:left;
+
+            .vs{
+              display: table-cell;
+              vertical-align: middle;
+            }
+            .label{
+              text-align: center;
+            }
+          }
+        }
+        .fixtureFooter{
+          padding:10px;
+          height: 40px;
+          color: #fff;
+        }
+      }
+  }
 }

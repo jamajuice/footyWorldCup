@@ -8,11 +8,35 @@
 </ion-header>
 
 <ion-content>
-  <ion-list inset>
-    <ion-item *ngFor="let fixture of fixtures">
-      <h2>{{fixture.homeTeamName}}</h2>
-      <div>vs</div>
-      <h2>{{fixture.awayTeamName}}</h2>
+  <ion-list>
+    <ion-item no-lines class="cardFixture" *ngFor="let fixture of fixtures">
+      <div class="fixtureBody">
+        <div class="divider">
+          <div class="imgContainer">
+            <img [src]="getTeamPicture(fixture.homeTeamName)">
+          </div>
+          <div class="label">
+            <h2>{{fixture.homeTeamName}}</h2>
+          </div>
+        </div>
+        <div class="divider">
+            <div class="vs">
+              
+              <div>VS</div>
+            </div>
+        </div>
+        <div class="divider">
+          <div class="imgContainer">
+            <img [src]="getTeamPicture(fixture.awayTeamName)">
+          </div>
+          <div class="label">
+            <h2>{{fixture.awayTeamName}}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="fixtureFooter">
+        <div>Matchday {{fixture.matchday}} - {{fixture.date | date: 'MMM dd'}} - {{fixture.date | date: 'H:mm'}}</div>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>

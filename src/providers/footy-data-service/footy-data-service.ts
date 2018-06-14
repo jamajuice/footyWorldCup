@@ -14,6 +14,7 @@ export class FootyDataServiceProvider {
   clickedApiURL: any;
   authToken = 'c651e24fba8049af8c7121f1dc20b8a5';
 
+
   constructor(public http: HttpClient) {
     console.log('Hello RestServiceProvider Provider');
   }
@@ -38,6 +39,20 @@ export class FootyDataServiceProvider {
       })
       .subscribe(data => {
         resolve(data["teams"]);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  getTeamPicture(imgApiUrl){
+    console.log(imgApiUrl);
+    return new Promise((resolve, reject) => {
+      this.http.get(imgApiUrl, {
+        headers: new HttpHeaders().set('X-Auth-Token', this.authToken),
+      })
+      .subscribe(data => {
+        resolve(data["crestUrl"]);
       }, err => {
         console.log(err);
       });

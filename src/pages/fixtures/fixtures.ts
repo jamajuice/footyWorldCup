@@ -9,6 +9,7 @@ import { FootyDataServiceProvider } from '../../providers/footy-data-service/foo
 export class FixturesPage {
   fixtures: any;
   clickedApiURL: any;
+  teams: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public footyDataService: FootyDataServiceProvider) {
     this.clickedApiURL = this.navParams.get('clickedApiURl');
@@ -17,6 +18,7 @@ export class FixturesPage {
     }else{
       this.getFixtures();
     }
+    this.getTeams();
   }
 
   getFixtures() {
@@ -33,6 +35,21 @@ export class FixturesPage {
       this.fixtures = data;
       console.log(this.fixtures);
     });
+  }
+
+  getTeams() {
+    this.footyDataService.getTeams()
+    .then(data => {
+      this.teams = data;
+    });
+  }
+
+  getTeamPicture(teamName){
+    for (let team of this.teams) {
+      if(teamName === team["name"]){
+        return team["crestUrl"];
+      }
+    }
   }
 
 
