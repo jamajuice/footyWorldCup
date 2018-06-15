@@ -13,7 +13,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PeopleServiceProvider } from '../providers/people-service/people-service';
 import { HttpClientModule } from '@angular/common/http';
 import { FootyDataServiceProvider } from '../providers/footy-data-service/footy-data-service';
-import { MapToIterable } from './map-to-iterable.pipe';
+import { MapToIterable } from '../pipes/mapToIterable/mapToIterable.pipe';
+import { SearchPipe } from '../pipes/search/search';
+import { SortPipe } from '../pipes/sort/sort';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MapToIterable } from './map-to-iterable.pipe';
     TeamsPage,
     TablePage,
     PlayersPage,
-    MapToIterable
+    MapToIterable,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

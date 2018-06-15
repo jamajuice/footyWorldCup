@@ -19,10 +19,15 @@ import { FixturesPage } from '../fixtures/fixtures';
 export class TeamsPage {
   teams: any;
   selectedItem: any;
+  toggled: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public footyDataService: FootyDataServiceProvider) {
     this.getTeams();
     this.selectedItem = navParams.get('item');
+  }
+
+  toggleSearch(){
+    this.toggled = this.toggled ? false : true;
   }
 
   getTeams() {

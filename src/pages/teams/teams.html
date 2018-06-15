@@ -10,13 +10,18 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Teams</ion-title>
+    <!-- Search Icon -->    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleSearch()"><ion-icon name="search"></ion-icon></button>
+    </ion-buttons>  
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
   <ion-list>
-    <ion-item no-lines class="cardTeam" *ngFor="let team of teams" >
+    <ion-searchbar *ngIf="toggled" [(ngModel)]="terms"></ion-searchbar>
+    <ion-item no-lines class="cardTeam" *ngFor="let team of teams | search : terms" >
       <div class="teamName">{{team.name}}</div>
       <div class="teamDisplay" [style.backgroundImage]="'url(' + team.crestUrl + ')'"></div>
       <div class="teamButtons">

@@ -29,7 +29,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let groupTeam of groupKVPair.val">
+        <tr *ngFor="let groupTeam of groupKVPair.val | sort: {property: column, order: order}">
           <td><span><img [src]="groupTeam.crestURI"></span>{{groupTeam.team}}</td>
           <td>{{groupTeam.playedGames}}</td>
           <td>{{groupTeam.goals}}</td>
