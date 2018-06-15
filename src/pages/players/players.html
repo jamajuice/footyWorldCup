@@ -8,15 +8,44 @@
 
   <ion-navbar>
     <ion-title>Players</ion-title>
+    <!-- Search Icon -->    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleSearch()"><ion-icon name="search"></ion-icon></button>
+    </ion-buttons>  
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content>
-    <ion-list inset>
-      <ion-item *ngFor="let player of players">
-        <h2>{{player.name}}</h2>
-      </ion-item>
+    <ion-searchbar *ngIf="toggled" [(ngModel)]="terms"></ion-searchbar>
+    <ion-list>
+      <div *ngFor="let player of players | search : terms">
+        <ion-item no-lines class="item-stable" [ngClass]="{active: isPlayerShown(player)}" (click)="togglePlayer(player)">
+          <ion-icon ios="ios-person" md="md-person" item-left></ion-icon>
+          <h2>{{player.name}}</h2>
+          <ion-icon ios="ios-arrow-dropdown-circle" md="md-arrow-dropdown-circle" *ngIf="!isPlayerShown(player)" item-right></ion-icon>
+          <ion-icon ios="ios-arrow-dropup-circle" md="md-arrow-dropup-circle" *ngIf="isPlayerShown(player)" item-right></ion-icon>
+        </ion-item>
+        <ion-item class="item-accordion" [hidden]="!isPlayerShown(player)">
+          <table>
+            <tr>
+              <td>Postion:</td>
+              <td>{{player.position}}</td>
+            </tr>
+            <tr>
+              <td>Jersey Number:</td>
+              <td>{{player.jerseyNumber}}</td>
+            </tr>
+            <tr>
+              <td>Date of Birth:</td>
+              <td>{{player.dateOfBirth}}</td>
+            </tr>
+            <tr>
+              <td>Contract Until:</td>
+              <td>{{player.contractUntil}}</td>
+            </tr>
+          </table>
+        </ion-item>
+      </div>
     </ion-list>
   </ion-content>

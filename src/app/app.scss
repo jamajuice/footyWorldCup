@@ -17,8 +17,8 @@
 ion-menu{
     ion-header{
         ion-toolbar{
-            height:305px;
-            min-height: 305px;
+            height:304px;
+            min-height: 304px;
 
             &.toolbar-ios, &.toolbar-md{
                 padding: 0;
@@ -26,16 +26,26 @@ ion-menu{
             .toolbar-background{
                 background-image: url("/img/menuWorldCupTitle.jpg");
                 background-position: center;
-                background-size: contain;
-                -webkit-background-size: contain;
-                -moz-background-size: contain;
+                background-size: cover;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
                 background-repeat: no-repeat;
+            }
+        }
+        ion-title{
+            .toolbar-title{
+                color: darkred;
             }
         }
     }
 }
 
+.list .menuItem.item[no-lines]{ 
+    border-bottom: 1px solid lightgrey; 
+}
+
 .activeHighlight{
-    background-color: map-get($colors, primary);
+    background-color: darkred;
     color: #fff;
 }
+

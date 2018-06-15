@@ -2,14 +2,13 @@
   <ion-header>
     <ion-toolbar>
       <ion-title>
-        <!--<img src="/img/menuWorldCupTitle.jpg" width="400" height="400"/>-->
       </ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+      <button menuClose class="menuItem" ion-item no-lines *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>

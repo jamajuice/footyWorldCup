@@ -17,10 +17,16 @@ import { FootyDataServiceProvider } from '../../providers/footy-data-service/foo
 export class PlayersPage {
   players: any;
   clickedApiURL: any;
+  shownPlayer: any;
+  toggled: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public footyDataService: FootyDataServiceProvider) {
     this.clickedApiURL = this.navParams.get('clickedApiURl');
     this.getPlayers();
+  }
+
+  toggleSearch(){
+    this.toggled = this.toggled ? false : true;
   }
 
   getPlayers() {
@@ -30,5 +36,17 @@ export class PlayersPage {
       console.log(this.players);
     });
   }
+
+  togglePlayer(player) {
+    if (this.isPlayerShown(player)) {
+      this.shownPlayer = null;
+    } else {
+      this.shownPlayer = player;
+    }
+  };
+
+  isPlayerShown(player){
+    return this.shownPlayer === player;
+  };
 
 }
