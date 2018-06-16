@@ -9,11 +9,11 @@
 
 <ion-content>
   <ion-list *ngFor="let fixture of fixtures">
-    <ion-item no-lines class="cardFixture" *ngIf="fixture.status === 'TIMED'">
+    <ion-item no-lines class="cardFixture">
       <div class="fixtureBody">
         <div class="divider">
           <div class="imgContainer">
-            <img [src]="getTeamPicture(fixture.homeTeamName)">
+            <img *ngIf="fixture.homeTeamCrest"  [src]="fixture.homeTeamCrest">
           </div>
           <div class="label">
             <h2>{{fixture.homeTeamName}}</h2>
@@ -27,7 +27,7 @@
         </div>
         <div class="divider">
           <div class="imgContainer">
-            <img [src]="getTeamPicture(fixture.awayTeamName)">
+            <img *ngIf="fixture.awayTeamCrest" [src]="fixture.awayTeamCrest">
           </div>
           <div class="label">
             <h2>{{fixture.awayTeamName}}</h2>

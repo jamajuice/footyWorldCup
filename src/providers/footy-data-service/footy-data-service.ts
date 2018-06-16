@@ -25,6 +25,14 @@ export class FootyDataServiceProvider {
         headers: new HttpHeaders().set('X-Auth-Token', this.authToken),
       })
       .subscribe(data => {
+        let fixtures:any = data["fixtures"];
+        fixtures.filter(fixture => fixture.status === "TIMED");
+        this.getTeams().then(teamData => {
+          for(let fixture of fixtures){
+              fixture.homeTeamCrest = this.getTeamPicture(fixture.homeTeamName, teamData);
+              fixture.awayTeamCrest = this.getTeamPicture(fixture.awayTeamName, teamData);
+          }
+        })
         resolve(data["fixtures"]);
       }, err => {
         console.log(err);
@@ -57,18 +65,22 @@ export class FootyDataServiceProvider {
       });
     });
   }
+  
 
-  getTeamPicture(imgApiUrl){
-    return new Promise((resolve, reject) => {
-      this.http.get(imgApiUrl, {
-        headers: new HttpHeaders().set('X-Auth-Token', this.authToken),
-      })
-      .subscribe(data => {
-        resolve(data["crestUrl"]);
-      }, err => {
-        console.log(err);
-      });
-    });
+  getTeamPicture(teamName, teams){
+    let crestUrl: any;
+    if(teams != null && typeof teams !== undefined &&teams.length !== 0){
+      for (let team of teams) {
+        if(teamName === team["name"]){
+          crestUrl = team["crestUrl"];
+          if(crestUrl !== null || typeof crestUrl !== undefined){
+            return crestUrl;
+          }
+        }
+      }
+    }else{
+      return "#";
+    }
   }
 
   getPlayers(clickedApiUrl) {

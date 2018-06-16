@@ -18,13 +18,13 @@ export class FixturesPage {
     }else{
       this.getFixtures();
     }
-    this.getTeams();
   }
 
   getFixtures() {
     this.footyDataService.getFixtures()
     .then(data => {
       this.fixtures = data;
+      this.fixtures = this.fixtures.filter(fixture => fixture.status === "TIMED");
     });
   }
 
@@ -33,29 +33,6 @@ export class FixturesPage {
     .then(data => {
       this.fixtures = data;
     });
-  }
-
-  getTeams() {
-    this.footyDataService.getTeams()
-    .then(data => {
-      this.teams = data;
-    });
-  }
-
-  getTeamPicture(teamName){
-    let crestUrl: any;
-    if(this.teams != null && typeof this.teams !== undefined && this.teams.length !== 0){
-      for (let team of this.teams) {
-        if(teamName === team["name"]){
-          crestUrl = team["crestUrl"];
-          if(crestUrl !== null || typeof crestUrl !== undefined){
-            return crestUrl;
-          }
-        }
-      }
-    }else{
-      return "#";
-    }
   }
 
 
