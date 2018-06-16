@@ -26,14 +26,14 @@ export class FootyDataServiceProvider {
       })
       .subscribe(data => {
         let fixtures:any = data["fixtures"];
-        fixtures.filter(fixture => fixture.status === "TIMED");
+        fixtures = fixtures.filter(fixture => fixture.status === "TIMED");
         this.getTeams().then(teamData => {
           for(let fixture of fixtures){
               fixture.homeTeamCrest = this.getTeamPicture(fixture.homeTeamName, teamData);
               fixture.awayTeamCrest = this.getTeamPicture(fixture.awayTeamName, teamData);
           }
-        })
-        resolve(data["fixtures"]);
+        });
+        resolve(fixtures);
       }, err => {
         console.log(err);
       });
@@ -104,7 +104,15 @@ export class FootyDataServiceProvider {
         headers: new HttpHeaders().set('X-Auth-Token', this.authToken),
       })
       .subscribe(data => {
-        resolve(data["fixtures"]);
+        let fixtures:any = data["fixtures"];
+        fixtures = fixtures.filter(fixture => fixture.status === "TIMED");
+        this.getTeams().then(teamData => {
+          for(let fixture of fixtures){
+              fixture.homeTeamCrest = this.getTeamPicture(fixture.homeTeamName, teamData);
+              fixture.awayTeamCrest = this.getTeamPicture(fixture.awayTeamName, teamData);
+          }
+        });
+        resolve(fixtures);
       }, err => {
         console.log(err);
       });
