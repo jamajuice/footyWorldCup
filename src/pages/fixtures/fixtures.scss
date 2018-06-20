@@ -5,13 +5,13 @@ page-fixtures {
       ion-label{
         border: 1px solid lightgray;
         border-radius: 15px;
-        background: url(/img/fixtureBackground.jpg) no-repeat center;
+        background: url(/assets/imgs/fixtureBackground.jpg) no-repeat center;
         background-size: cover;
 
         .fixtureBody{
           height: 145px;
           color: #fff;
-          
+
           .imgContainer{
             height: 100px;
             position: relative;
@@ -52,4 +52,5 @@ page-fixtures {
         }
       }
   }
+
 }

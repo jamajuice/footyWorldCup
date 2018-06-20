@@ -24,7 +24,7 @@ ion-menu{
                 padding: 0;
             }
             .toolbar-background{
-                background-image: url("/img/menuWorldCupTitle.jpg");
+                background-image: url("/assets/imgs/menuWorldCupTitle.jpg");
                 background-position: center;
                 background-size: cover;
                 -webkit-background-size: cover;
@@ -40,8 +40,8 @@ ion-menu{
     }
 }
 
-.list .menuItem.item[no-lines]{ 
-    border-bottom: 1px solid lightgrey; 
+.list .menuItem.item[no-lines]{
+    border-bottom: 1px solid lightgrey;
 }
 
 .activeHighlight{
